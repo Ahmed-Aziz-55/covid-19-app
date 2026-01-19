@@ -14,4 +14,14 @@ class StatesServices {
       throw Exception('Error');
     }
   }
+
+  Future<List<dynamic>>countriesListApi() async{
+    final response= await http.get(Uri.parse(AppUrls.countriesList));
+    if(response.statusCode==200){
+      var data=jsonDecode(response.body);
+      return data;
+    }else{
+      throw Exception('Error');
+    }
+  }
 }
